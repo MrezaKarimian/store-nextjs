@@ -1,16 +1,81 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: "RobotoFlex";
+    src: url("/fonts/RobotoFlex[slnt,wdth,wght,opsz].woff2")
+    format("woff2 supports variations"),
+    url("/fonts/RobotoFlex[slnt,wdth,wght,opsz].woff2")
+    format("woff2-variations");
+    font-weight: 100 1000;
+    font-stretch: 25% 151%;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Shabnam;
+    font-display: swap;
+    src: local('Shabnam Thin'), local('Shabnam-Thin'),url('/fonts/Shabnam-Thin-FD.woff2') format("woff");
+    font-weight: 200;
+  }
+  @font-face {
+    font-family: Shabnam;
+    font-display: swap;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+    src: local('Shabnam Light'), local('Shabnam-Light'),url('/fonts/Shabnam-Light-FD.woff2') format("woff");
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: Shabnam;
+    font-display: swap;
+    src: local('Shabnam Regular'), local('Shabnam-Regular'),url('/fonts/Shabnam-FD.woff2') format("woff");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: Shabnam;
+    font-display: swap;
+    src: local('Shabnam Medium'), local('Shabnam-Medium'),url('/fonts/Shabnam-Medium-FD.woff2') format("woff");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: Shabnam;
+    font-display: swap;
+    src: local('Shabnam Bold'), local('Shabnam-Bold'),url('/fonts/Shabnam-Bold-FD.woff2') format("woff");
+    font-weight: 700;
+  }
 
-* {
-  box-sizing: border-box;
+  root,html,body:lang(en){
+    font-family: RobotoFlex, monospace !important;
+  }
+  root,html,body:lang(fa){
+    font-family: Shabnam, Sans-serif, serif !important;
+  }
+  .bar-of-progress {
+    z-index: 50;
+  }
+  ul[role=list] li {
+    padding-left: 0;
+    padding-right: 1.75em;
+  }
+  ul[role=list] li::before {
+    right:0.25em;
+  }
+  .post-content a{
+    color:#a47449;
+    /*text-decoration: underline;*/
+  }
+  .instagram-gradient {
+    background-image: linear-gradient(to right, #f06b52 3%, #d63385 29%, #ab36a0 50%, #8442b5 71%, #505fd2 97%);
+  }
+  .select-bg-position {
+    background-position: left 0.5rem center;
+  }
+
+  /*.inventory-img{*/
+
+  /*    height: calc(100vh - 8rem - 104px);*/
+  /*}*/
+  /**,*:focus,*:hover{*/
+  /*    outline:none;*/
+  /*}*/
 }
