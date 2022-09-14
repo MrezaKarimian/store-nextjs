@@ -1,24 +1,28 @@
-import CategoryCard from "../Common/cards/CategoryCard";
-import { GlobeAltIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import ProductList from "./ProductList";
 import Image from "next/image";
 import shoeicon from "../../public/shoeicon.png";
+import tieicon from "../../public/tieicon.png";
+import suteicon from "../../public/suteicon.png";
+import tshirticon from "../../public/tshirticon.png";
+import shirticon from "../../public/shirticon.png";
+import pansicon from "../../public/pansicon.png";
+import accessoryicon from "../../public/accessoryicon.png";
+import filtericon from "../../public/filtericon.png";
+
 
 const categorys = [
-  { id: 1, name: "کتونی", icon: shoeicon },
-  { id: 2, name: "کت شلوار", icon: shoeicon },
-  { id: 3, name: "اکسسوری", icon: shoeicon },
-  { id: 4, name: "کیف", icon: shoeicon },
-  { id: 5, name: "تی شرت", icon: shoeicon },
-  { id: 6, name: "شلوار", icon: shoeicon },
-  { id: 7, name: "کفش", icon: shoeicon },
-  { id: 8, name: "کراوات", icon: shoeicon }
+  { id: 1, name: "کت شلوار", icon: suteicon },
+  { id: 2, name: "اکسسوری", icon: accessoryicon },
+  { id: 3, name: "پیراهن", icon: shirticon },
+  { id: 4, name: "تی شرت", icon: tshirticon },
+  { id: 5, name: "شلوار", icon: pansicon },
+  { id: 6, name: "کفش", icon: shoeicon },
+  { id: 7, name: "کراوات", icon: tieicon }
 ];
 
 export default function Categorys() {
   const [selectedCategory, setSelectedCategory] = useState(categorys[0].id);
-  console.log(selectedCategory);
   return (
     <>
       <div className="h-32 mt-20 relative">
@@ -29,9 +33,9 @@ export default function Categorys() {
         <h2 className="text-3xl font-light mb-10"> دسته بندی ها</h2>
         <div>
           {/*  chose a category  */}
-          <div className="relative grid grid-cols-8">
+          <div className="relative grid grid-cols-7">
             <div className="absolute left-0 -top-12 p-2 bg-gray-800 text-white cursor-pointer">
-              <GlobeAltIcon className="w-8 h-8" />
+              <Image src={filtericon} alt="" width={32} height={32} />
             </div>
             {categorys.map((category) => (
               <div
@@ -49,7 +53,6 @@ export default function Categorys() {
             ))}
           </div>
         </div>
-        <CategoryCard />
       </div>
       <ProductList />
     </>

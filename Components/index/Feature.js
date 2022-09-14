@@ -56,9 +56,6 @@ export default function Feature() {
                 <div className="my-10 text-base font-extralight text-gray-400">
                   {feature.description}
                 </div>
-                <div className="absolute text-base font-extralight cursor-pointer text-gray-400 bottom-8 hover:text-gray-600">
-                  بیشتر بدانید...
-                </div>
               </div>
             ))}
           </div>

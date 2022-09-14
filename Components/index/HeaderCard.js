@@ -1,22 +1,21 @@
 import Image from "next/image";
 import clothe from "../../public/clothe3.png";
-import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { StarIcon } from "@heroicons/react/solid";
 
 const product = {
-  name: "پیراهن لی مدل XXX",
-  collection: "summer collection",
+  name: "پیراهن لی مدل X",
+  collection: "کالکشن تابستانه",
   price: "400 هزار تومان",
   rating: 3.3,
   reviewCount: 117,
   href: "#",
   imageSrc: "",
   colors: [
-    { name: "White", class: "bg-white", selectedClass: "ring-gray-300" },
-    { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-300" },
-    { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-500" },
-    { name: "Blue", class: "bg-indigo-700", selectedClass: "ring-indigo-300" }
+    { name: "White", class: "bg-white" },
+    { name: "Gray", class: "bg-gray-200"},
+    { name: "Black", class: "bg-gray-900"},
+    { name: "Blue", class: "bg-indigo-700"}
   ],
   sizes: [
     { name: "S", inStock: true },
@@ -31,9 +30,6 @@ function classNames(...classes) {
 }
 
 export default function HeaderCard() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
-
   return (
     <>
       <div className="container mx-auto">
@@ -59,18 +55,18 @@ export default function HeaderCard() {
               </div>
 
               <div className="flex items-center justify-start mt-2">
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <StarIcon
-                      key={rating}
-                      className={classNames(
-                        product.rating > rating
-                          ? "text-gray-400"
-                          : "text-gray-200",
-                        "h-5 w-5 flex-shrink-0"
-                      )}
-                      aria-hidden="true"
-                    />
-                  ))}
+                {[0, 1, 2, 3, 4].map((rating) => (
+                  <StarIcon
+                    key={rating}
+                    className={classNames(
+                      product.rating > rating
+                        ? "text-gray-400"
+                        : "text-gray-200",
+                      "h-5 w-5 flex-shrink-0"
+                    )}
+                    aria-hidden="true"
+                  />
+                ))}
               </div>
 
               <section aria-labelledby="options-heading" className="mt-10">
@@ -81,32 +77,24 @@ export default function HeaderCard() {
                       <h4 className="text-sm mb-2 text-gray-500 font-medium">
                         رنگ:
                       </h4>
-                      <RadioGroup
-                        value={selectedColor}
-                        onChange={setSelectedColor}
-                      >
-                        {/*    chose a color    */}
+                      <RadioGroup>
                         <div className="flex">
                           {product.colors.map((color) => (
-                            <RadioGroup.Option
+                            <div
                               key={color.name}
-                              value={color}
-                              className={({ checked }) =>
-                                classNames(
-                                  color.selectedClass,
-                                  checked ? "ring ring-offset-2" : "",
-                                  "my-2 ml-4 relative rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
-                                )
+                              className={
+                                "my-2 ml-4 relative rounded-full flex items-center justify-center"
                               }
                             >
                               <span
                                 aria-hidden="true"
                                 className={classNames(
                                   color.class,
-                                  "h-4 w-4 border border-black border-opacity-10 rounded-full"
+                                  color.ringClass,
+                                  "h-4 w-4 border border-black border-opacity-30 rounded-full"
                                 )}
                               />
-                            </RadioGroup.Option>
+                            </div>
                           ))}
                         </div>
                       </RadioGroup>
@@ -116,60 +104,20 @@ export default function HeaderCard() {
                       <h4 className="text-sm mb-2 text-gray-500 font-medium">
                         سایز:
                       </h4>
-                      <RadioGroup
-                        value={selectedSize}
-                        onChange={setSelectedSize}
-                      >
-                        {/*    Choose a size    */}
+                      <RadioGroup>
                         <div className="flex">
                           {product.sizes.map((size) => (
-                            <RadioGroup.Option
+                            <div
                               key={size.name}
-                              value={size}
-                              disabled={!size.inStock}
                               className={classNames(
                                 size.inStock
-                                  ? "ml-8 my-2 text-gray-400 cursor-pointer"
-                                  : "ml-8 my-2 p-1 rounded-md text-gray-200 cursor-not-allowed",
-                                "relative flex items-center justify-center text-sm font-medium uppercase hover:text-gray-300 sm:flex-1 focus:outline-none"
+                                  ? "ml-8 my-2 text-gray-700"
+                                  : "ml-8 my-2 p-1 rounded-md text-gray-400",
+                                "relative flex items-center justify-center text-sm font-medium uppercase sm:flex-1"
                               )}
                             >
-                              {({ checked }) => (
-                                <>
-                                  <RadioGroup.Label
-                                    as="p"
-                                    className={classNames(
-                                      checked ? "text-gray-900" : ""
-                                    )}
-                                  >
-                                    {size.name}
-                                  </RadioGroup.Label>
-                                  {size.inStock ? (
-                                    ""
-                                  ) : (
-                                    <div
-                                      aria-hidden="true"
-                                      className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
-                                    >
-                                      <svg
-                                        className="absolute inset-0 w-full h-full text-gray-200 stroke-2"
-                                        viewBox="0 0 100 100"
-                                        preserveAspectRatio="none"
-                                        stroke="currentColor"
-                                      >
-                                        <line
-                                          x1={0}
-                                          y1={100}
-                                          x2={100}
-                                          y2={0}
-                                          vectorEffect="non-scaling-stroke"
-                                        />
-                                      </svg>
-                                    </div>
-                                  )}
-                                </>
-                              )}
-                            </RadioGroup.Option>
+                             {size.name}
+                            </div>
                           ))}
                         </div>
                       </RadioGroup>
