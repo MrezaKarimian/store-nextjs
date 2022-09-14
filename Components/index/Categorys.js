@@ -33,15 +33,15 @@ export default function Categorys() {
         <h2 className="text-3xl font-light mb-10"> دسته بندی ها</h2>
         <div>
           {/*  chose a category  */}
-          <div className="relative grid grid-cols-7">
-            <div className="absolute left-0 -top-12 p-2 bg-gray-800 text-white cursor-pointer">
+          <div className="relative grid grid-cols-7 bg-zinc-100">
+            <div className="absolute left-0 -top-12 p-2 bg-gray-800 text-white -z-10 cursor-pointer">
               <Image src={filtericon} alt="" width={32} height={32} />
             </div>
             {categorys.map((category) => (
               <div
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`p-4 cursor-pointer hover:shadow-inner bg-zinc-50 text-light
+                className={`py-2 cursor-pointer hover:shadow-inner text-light
                     ${category.id === selectedCategory ? "bg-gray-500 text-white" : "text-gray-700" }`
                 }
               >

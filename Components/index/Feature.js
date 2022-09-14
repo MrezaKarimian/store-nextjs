@@ -31,7 +31,7 @@ const features = [
 export default function Feature() {
   return (
     <>
-      <div className="bg-zinc-50">
+      <div className="bg-zinc-100">
         <div className="w-3/5 mx-auto py-24">
           <div className="flex justify-center mb-10 font-bold text-2xl ">
             <h2 className="mx-auto">تکستی برای مزایا</h2>
