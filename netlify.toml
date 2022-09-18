@@ -11,9 +11,6 @@ NODE_VERSION = "17"
 framework = "#static"
 
 [[plugins]]
-package = "../plugin-wrapper/"
-
-[[plugins]]
 package = "@netlify/plugin-nextjs"
 
 [[plugins]]
