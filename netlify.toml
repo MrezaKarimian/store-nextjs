@@ -1,3 +1,7 @@
 [build]
+<<<<<<< HEAD
 command = "npm run build"
+=======
+command = "next build && next export"
+>>>>>>> 737e6c4deb24df935fc9ecc9c776e417582ee52e
 publish = "out"
