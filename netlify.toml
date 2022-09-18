@@ -1,6 +1,13 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  
+[build.environment]
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
+NODE_VERSION = "17"
+
+[dev]
+framework = "#static"
 
 [[plugins]]
-  package = "netlify-plugin-cypress"
+package = "@netlify/plugin-local-install-core"
