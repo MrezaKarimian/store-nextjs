@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.4",
     "@heroicons/react": "^1.0.6",
+    "cypress": "^10.8.0",
     "heroicons": "^1.0.6",
     "heroicons-react": "^1.4.1",
     "netlify": "^12.0.1",
