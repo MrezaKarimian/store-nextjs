@@ -4,7 +4,6 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
-<<<<<<< HEAD
-=======
 
->>>>>>> b4c2bfde9cf597bf92f55a17960800b13e8ebf40
+[[plugins]]
+  package = "netlify-plugin-inline-critical-css"
